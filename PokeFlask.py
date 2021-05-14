@@ -14,14 +14,6 @@ from flask import Flask, jsonify
 rds_connection_string = "postgres:postgres@localhost:5432/Pokemon_Gen1"
 engine = create_engine(f'postgresql://{rds_connection_string}')
 
-# # reflect an existing database into a new model
-# Base = automap_base()
-# # reflect the tables
-# Base.prepare(engine, reflect=True)
-# print(Base.classes.keys())
-
-# # Save reference to the table
-# Pokemon = Base.classes.gen1_data
 
 #################################################
 # Flask Setup
