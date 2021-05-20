@@ -1,6 +1,3 @@
-// Use D3 fetch to read the JSON file
-// The data from the JSON file is arbitrarily named importedData as the argument
-
 function buildPlot(id) {
     d3.json("/api/v1.0/" + id).then((importedData) => {
     // console.log(importedData);
@@ -102,7 +99,7 @@ function init() {
         // Binding event
         dropdownMenu.on("change",function(){
             console.log(this)
-            // set variable for pokeType
+            // set variable for pokeType - "this" in console.log(this)
         });
         buildPlot("dragon");
         // replace "dragon" with variable for Type
