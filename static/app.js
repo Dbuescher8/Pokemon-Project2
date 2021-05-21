@@ -101,7 +101,7 @@ function init() {
             console.log(this)
             // set variable for pokeType - "this" in console.log(this)
         });
-        buildPlot("dragon");
+        buildPlot("grass");
         // replace "dragon" with variable for Type
         // plotInfo(data.names[0]);
     });
