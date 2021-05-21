@@ -1,6 +1,5 @@
 function buildPlot(id) {
     d3.json("/api/v1.0/" + id).then((importedData) => {
-    // console.log(importedData);
         var data = importedData;
 
         data.sort(function(a, b) {
@@ -16,10 +15,8 @@ function buildPlot(id) {
         orientation: "v"
         };
     
-        // data
         var chartData = [trace1];
     
-        // Apply the group bar mode to the layout
         var layout = {
         title: "helf",
         margin: {
@@ -32,14 +29,12 @@ function buildPlot(id) {
         width: 1200
         };
     
-        // Render the plot to the div tag with id "plot"
         Plotly.newPlot("bar", chartData, layout);
 
         var data2 = importedData;
         data2.sort(function(a, b) {
             return parseFloat(b.attack) - parseFloat(a.attack);
         });
-        // data2 = data2.slice(0,5);
         var trace2 = {
             x: data2.map(row=>row.name),
             y:data2.map(row=>row.attack),
@@ -92,17 +87,16 @@ function init() {
                 pokeList.push(type.pokeType)
             }
         });
+        dropdownMenu.append("option").text("-select-").property("value");
         //  loop through to find if type exists, append
         pokeList.forEach(function(type) {
             dropdownMenu.append("option").text(type).property("value");
         });
         // Binding event
         dropdownMenu.on("change",function(){
-            console.log(this)
-            // set variable for pokeType - "this" in console.log(this)
+            console.log(this.value)
+            buildPlot(this.value)
         });
-        buildPlot("grass");
-        // replace "dragon" with variable for Type
         // plotInfo(data.names[0]);
     });
 }
