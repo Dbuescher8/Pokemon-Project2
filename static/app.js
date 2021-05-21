@@ -18,7 +18,7 @@ function buildPlot(id) {
         var chartData = [trace1];
     
         var layout = {
-        title: "helf",
+        title: "HP",
         margin: {
             l: 100,
             r: 100,
@@ -45,7 +45,7 @@ function buildPlot(id) {
         };
         var chartData2 = [trace2];
         var layout2 = {
-            title: "attac",
+            title: "Attack",
             margin: {
                 l: 100,
                 r: 100,
@@ -59,24 +59,22 @@ function buildPlot(id) {
   });
 }
 
-// function plotInfo(id) {
-//     d3.json("flaskDataPull.json").then((data)=> {
-//         var metadata = data;
-//         var metadataFilter = metadata.filter(meta => meta.id.toString() === id)[0];
+function plotInfo(id) {
+    d3.json("/api/v1.0/" + id).then((importedData)=> {
+        var data = importedData;
+        data.sort(function(a, b) {
+            return parseFloat(b.name) - parseFloat(a.name);
+            });
 
-//         var pokeSet = d3.select("#sample-metadata");
-//         pokeSet.html("");
+        var pokeSet = d3.select("#sample-metadata");
+        pokeSet.html("");
         
-//         Object.entries(metadataFilter).forEach((key)=> {
-//             pokeSet.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");
-//         });
-//     });
-// }
-
-// function sampleSelection(id) {
-//     buildPlot(id);
-//     plotInfo(id);
-// }
+        Object.entries(data).forEach(function(Pokemon) {
+            console.log(Pokemon);
+            pokeSet.append("h5").text(Pokemon[1]["name"].toUpperCase() + "\n");
+        });
+    });
+}
 
 function init() {
     var dropdownMenu = d3.select("#selDataset");
@@ -96,8 +94,8 @@ function init() {
         dropdownMenu.on("change",function(){
             console.log(this.value)
             buildPlot(this.value)
+            plotInfo(this.value)
         });
-        // plotInfo(data.names[0]);
     });
 }
 
