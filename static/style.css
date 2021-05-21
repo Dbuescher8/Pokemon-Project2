@@ -35,7 +35,6 @@ p {
 #PokeBanner {
 justify-content: center;
 display:flex}
-<<<<<<< HEAD
 
 .letter {
     display: inline-block;
@@ -45,5 +44,3 @@ display:flex}
   div {
     display: inline-block;
   }
-=======
->>>>>>> 92d83ce21ddcc3ee567583b323d50f3207700bc6
