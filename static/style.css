@@ -35,3 +35,12 @@ p {
 #PokeBanner {
 justify-content: center;
 display:flex}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+  }
+  
+  div {
+    display: inline-block;
+  }
