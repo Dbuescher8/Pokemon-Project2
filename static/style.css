@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Ubuntu, sans-serif;
+  font-family:'Times New Roman', Times, serif
 }
 
 .navbar-brand 
@@ -14,6 +14,8 @@ h3 {
  .container{
     background-color:lightgrey;
     color: rgb(28, 87, 248);
+    text-align: center;
+    justify-content: center;
 }   
 body {
     background-color: lightgray;
@@ -34,7 +36,9 @@ p {
 }
 #PokeBanner {
 justify-content: center;
-display:flex}
+display:flex
+
+}
 
 .letter {
     display: inline-block;
